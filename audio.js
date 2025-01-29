@@ -1,13 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
     let audio = document.createElement("audio");
-    audio.src = "Song.mp3"; // Change this to your audio file path
-    audio.loop = true; // Enables looping
-    audio.autoplay = true;
+    audio.src = "Song.mp3";  // Change to the path of your audio file
+    audio.loop = true;       // Loop the audio
+    audio.autoplay = true;   // Start playing the audio automatically
 
-    // Try to play audio, handle autoplay restrictions
+    // Append the audio element to the body
+    document.body.appendChild(audio);
+
+    // Try playing the audio
     audio.play().catch(error => {
         console.log("Autoplay blocked. User interaction required.");
     });
 
-    document.body.appendChild(audio); // Adds the audio element to the page
+    // Once the audio starts playing, trigger the fluid animation
+    audio.onplay = function() {
+        // Call the fluid animation start function
+        startFluidAnimation();
+    };
+
+    // Function to start the fluid animation
+    function startFluidAnimation() {
+        // Insert your existing fluid animation logic here
+        console.log("Fluid animation started!");
+        // Example: call the fluid animation function from your WebGL code
+        // startWebGLFluidSimulation();  // Replace with actual function name
+    }
 });
